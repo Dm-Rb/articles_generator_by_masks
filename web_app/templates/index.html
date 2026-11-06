@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Генератор артикулов по маскам</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+
+<main class="card">
+  <h1>Генератор артикулов</h1>
+  <p class="sub">Загрузите сертификат с масками, проверьте извлечённые данные и получите архив артикулов.</p>
+
+  <span class="label" id="mode-label">Режим извлечения масок</span>
+  <div class="segmented" role="radiogroup" aria-labelledby="mode-label">
+    <input type="radio" name="mode" id="mode-regex" value="regex" checked>
+    <label for="mode-regex">Regex</label>
+    <input type="radio" name="mode" id="mode-ai" value="ai">
+    <label for="mode-ai">AI-agent</label>
+  </div>
+  <p class="hint" id="mode-hint"></p>
+
+  <button class="primary" id="upload-btn" type="button">Загрузить файл</button>
+  <input type="file" id="file-input" hidden accept=".txt,.md,.csv,.tsv,.docx,.xlsx,.pdf">
+  <div class="formats">TXT, MD, CSV, TSV, DOCX, XLSX, PDF</div>
+</main>
+
+<div class="overlay" id="overlay">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="close" id="close-btn" type="button" aria-label="Закрыть">&times;</button>
+    <h2 id="modal-title">Извлечённые данные</h2>
+    <p class="file" id="file-name"></p>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<script src="/static/js/app.js" defer></script>
+</body>
+</html>
